@@ -12,30 +12,37 @@
 \moderncvstyle{banking}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
 \moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
-
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-
 % adjust the page margins
-\usepackage[scale=0.75]{geometry}
+\usepackage[bottom=2.5cm, top=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+%\recomputelengths
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\usepackage[11pt]{moresize}
+\usepackage{xcolor}
 
-% Monospace plus and minus signs
+% Custom definitions
 \def\Plus{\texttt{+}}
 \def\Minus{\texttt{-}}
+\def\cpp{C\Plus{}\Plus{}}
+\newcommand{\?}[1]{% kerned hyphen
+  \sbox0{A#1}\sbox2{A\kern0pt #1}%
+  \kern\dimexpr\wd0-\wd2\relax
+  #1%
+}
 
 % personal data
 \name{Noam}{Silvy}
 %\title{Resumé title}                               % optional, remove / comment the line if not wanted
-\address{12 rue Saint Fiacre}{75002 Paris}{}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
-\phone[mobile]{\Plus{}33(0)666522546}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\address{12 rue Saint Fiacre}{75002 Paris}{France}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{\Plus{}33~(0)6~66~52~25~46}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
 \email{noam.silvy@gmail.com}                               % optional, remove / comment the line if not wanted
 \social[linkedin]{noam-silvy}                        % optional, remove / comment the line if not wanted
 %\social[github]{jdoe}                              % optional, remove / comment the line if not wanted
-%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+\extrainfo{12 rue Saint Fiacre, 75002 Paris, France}                 % optional, remove / comment the line if not wanted
 %\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{Some quote}                                 % optional, remove / comment the line if not wanted
 
@@ -57,38 +64,98 @@
 %-----       resume       ---------------------------------------------------------
 \makecvtitle
 
+\vspace{-0.5cm}
 \section{Education}
-\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
-\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+\cventry{Expected 2020}{Postgraduate Degree ``Expert in Information Technology''}{\href{https://international.epitech.eu/graduate-diploma-in-i-t/}{Epitech (Paris Graduate School of Digital Innovation)}}{Paris, France}{}{}  % arguments 3 to 6 can be left empty
+\cventry{Expected 2019}{\href{https://www.kent.ac.uk/courses/postgraduate/249/advanced-computer-science-computational-intelligence}{MSc in Advanced Computer Science (Computational Intelligence)}}{\href{https://www.kent.ac.uk/courses/postgraduate/249/advanced-computer-science-computational-intelligence}{Univeristy of Kent}}{Canterbury, UK}{}{MSc Thesis: ``Using Deep Neural Networks to Produce Novel Music''}
+\cventry{2018}{Bachelor Degree ``Expert in Information Technology''}{\href{https://international.epitech.eu/graduate-diploma-in-i-t/}{Epitech}}{Paris, France}{}{Member of the Innovation Hub in partnership with research labs and companies\newline Member of the teaching staff}
+\cventry{2015}{High School Diploma, maths and science major}{Racine High School, Special music section for gifted music students}{Paris, France}{with honors}{
+\iffalse
+    Special music section for gifted music students
+\fi}
+\cventry{Expected 2020}{Certificate of Musical Study, Piano}{Conservatory of Central Paris}{Paris, France}{}{Artistic project and piano recital on human-computer improvisation}
 
-\section{Master thesis}
-\cvitem{title}{\emph{Title}}
-\cvitem{supervisors}{Supervisors}
-\cvitem{description}{Short thesis abstract}
+%\section{Master thesis}
+%\cvitem{title}{\emph{Title}}
+%\cvitem{supervisors}{Supervisors}
+%\cvitem{description}{Short thesis abstract}
 
-\section{Experience}
-\subsection{Vocational}
-\cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
-Detailed achievements:%
+\section{Work Experience}
+%\subsection{Vocational}
+\cventry{Apr--Sept 2018}{Software Developer Intern, Real-\?Time Market Access Team}{Societe Generale Corporate and Investment Banking}{La Défense, Paris, France}{}{Designed \texttt{\&} implemented a real-time market data feed subscription API for fast prototyping (\cpp{} and Python)%Designed and implemented a C++ and Python API allowing to subscribe to multiple market data feed and supporting various protocols
 \begin{itemize}%
-\item Achievement 1;
-\item Achievement 2, with sub-achievements:
-  \begin{itemize}%
-  \item Sub-achievement (a);
-  \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
-    \begin{itemize}
-    \item Sub-sub-achievement i;
-    \item Sub-sub-achievement ii;
-    \item Sub-sub-achievement iii;
-    \end{itemize}
-  \item Sub-achievement (c);
-  \end{itemize}
-\item Achievement 3.
+\item Studied existing \cpp{} APIs and selected the most relevant as a basis for further developments
+\item Designed the API with continuous feedback from the head of the low-latency market data analysis team
+\item Implemented the API in \cpp{} as an encapsulating layer over an existing more complex API
+\begin{itemize}
+    \item Exposed the \cpp{} API as a Python module using the \href{https://github.com/pybind/pybind11}{\textit{pybind11} library}
+\end{itemize}
+\item Presented and demonstrated the API to the Real-\?Time Market Access team's heads
+\item Allowed a much wider range of clients like traders, data analysts and testers to access real-time market data through a simpler framework
+\item Received a bonus for excellent work
 \end{itemize}}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
-\subsection{Miscellaneous}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description}
 
+\cventry{Jan 2017--March 2018}{C/Unix and \cpp{} Teaching Assistant}{Epitech}{Paris, France}{}{
+\begin{itemize}
+    \item Directed peer-based practical coding activities
+    \item Conducted interactive classes to both small groups and large classrooms (up to 100 students)
+    \item Reviewed independent student projects of varying size (ranging from 2 weeks to 2 months)
+    \item Identified methodological, design, logical and implementation flaws
+    \item Challenged students with technical and methodological insights to make them progress
+\end{itemize}}
+
+\cventry{Aug--Dec 2016}{Ruby on Rails Junior Developer}{\href{http://web.leikir.io}{Leikir Web}}{Ivry-sur-Seine, France}{}{
+    \begin{itemize}
+        \item Designed and developed the company's intranet
+        \item Improved back and front ends of a mapping tool for visualizing a company's organization
+        \item Assigned to Leikir's major client, \href{http://www.liegeymullerpons.fr/en/}{LMP (first political campaign technology startup in Europe)}
+        \begin{itemize}
+            \item Improved email campaign module (used by 300 users) and administrator interface
+            \item Served as liaison to sales and data analysis teams
+        \end{itemize}
+    \end{itemize}
+}
+
+\cventry{July 2014}{Summer Discovery Workshop}{\href{https://www.inria.fr/en/}{INRIA {\footnotesize (French Institute for Research in Computer Science and Automation)}}}{Sophia-Antipolis, France}{}{Early research experience, exploring automatic musical note recognition}
+
+%\subsection{Miscellaneous}
+
+\section{Projects}
+\begin{itemize}
+    \item \textbf{VOIP software} using a homemade TCP/IP based protocol and a modular design\newline
+    Encapsulated the \href{http://www.portaudio.com/}{PortAudio C API} and abstracted it in a communication module
+    \item \textbf{Gomoku AI} using a Monte Carlo Tree Search reinforced by Deep Learning techniques
+    \item \textbf{3D cross-platform Game Engine} based on an Entity Component System model
+\end{itemize}
+
+\newlength{\skillsspace}
+\addtolength{\skillsspace}{0.5cm}
+\section{Skills}
+\cvlistitem{Inductive, peer-based and project-based learning; Agile software development}
+\cvlistitem{Linux development environment, Git version control}
+\cvlistitem{\cpp{}, C (\Plus{}\Plus{}\Plus{})\hspace{\skillsspace}Ruby on Rails, Python (\Plus{}\Plus{})\hspace{\skillsspace}OCaml, Javascript, Java, SPARQL, SQL (\Plus{})}
+
+\newlength{\langspace}
+\addtolength{\langspace}{1.6cm}
+\section{Languages  \normalsize{(binational French/American)}}
+    \textnormal{\textbf{French} native\hspace{\langspace}\textbf{English} fluent\hspace{\langspace}\textbf{Italian} conversational\hspace{\langspace}\textbf{Japanese} beginner}
+
+\section{Musical experience}
+\cventry{2014}{\href{http://live.philharmoniedeparis.fr/embed/1019811/philippe-manoury-cristobal-halffter-georg-friedrich-haas-gyorgy.html}{\textnormal{World premiere of }\textit{Petit Hommage à un Grand Maître}\textnormal{, Georg Friedrich Haas, piano solo}}}{\href{http://philharmoniedeparis.fr/en}{Concert at Cité de la Musique}}{Paris}{}{}
+\cventry{Created in 2015}{}{\href{https://www.mumos.world}{Founding member of MUMOS association}}{Worldwide}{}{}
+\vspace{-1.1\baselineskip}
+\href{https://www.mumos.world}{\textnormal{Promoting interdisciplinary performance in the arts through a YouTube channel \newline and artistic projects}}
+
+\section{Volunteer work}
+\cventry{2015--2016}{\textnormal{Coaching Epitech students to acquire the basics of the C programming language}}{\href{http://www.epitech.eu/blogs/La-Banquise-Penguins-etudiants-premiere-annee.html}{Member of the Penguins association}}{Paris}{}{}
+\cventry{2008--2015}{\textnormal{Regular visits to retirement homes playing and sharing music with residents}}{Concert afternoons for retirees}{Paris}{}{}
+
+\section{Interests}
+\cvitem{Travelling and hiking}{Japan (Mount Fuji), Spain (Mount Teide), USA, Turkey, Israel...}
+\cvitem{Sports}{Karate (silver medallist at national BUCS competition), Cycling (20km commute)}
+\cvitem{Music}{Classical and Jazz music enthusiast (confirmed piano, beginner saxophone player)}
+
+\iffalse
 \section{Languages}
 \cvitemwithcomment{Language 1}{Skill level}{Comment}
 \cvitemwithcomment{Language 2}{Skill level}{Comment}
@@ -120,6 +187,7 @@ Detailed achievements:%
   \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
   \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
 \end{cvcolumns}
+\fi
 
 % Publications from a BibTeX file without multibib
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
